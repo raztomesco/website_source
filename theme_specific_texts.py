@@ -1,0 +1,41 @@
+
+I18N_SUBSITES = {
+    'en': {
+        'language': 'en',
+        'otherlanguage': 'he',
+        'otherlanguage_label': 'עברית',
+        'AUTHOR': 'Raz Tomesco',
+        'SITENAME': 'Raz Tomesco Photography',
+        'SITEURL': '',
+        'BACK': 'back to the front page',
+        'NAVBARheader': 'Raz Tomesco',
+        'NAVBARlinks': [('about', 'about'), ('portfolio', 'portfolio'), ('where_to_find_me', 'where to find me'), ('contact_form', 'contact form')],
+        'HEROslogan': 'Raz Tomesco Photography',
+        'HEROsubtitle': 'Weddings / Family / Street',
+        'HERObutton': 'About me',
+        'EMAILFORMheader': 'Send a quick message',
+        'EMAILFORMname': 'your name',
+        'EMAILFORMaddress': 'email address',
+        'EMAILFORMbutton': 'send',
+
+    },
+    'he': {
+        'language': 'he',
+        'otherlanguage': 'en',
+        'otherlanguage_label': 'English',
+        'CSSRTL': True,
+        'SITENAME': 'רז טומסקו צילום',
+        'BACK': 'חזרה לעמוד הראשי',
+        'LOCALE': 'he_IL',
+        'SITEURL': '',
+        'NAVBARheader': 'רז טומסקו',
+        'NAVBARlinks': [('about', 'אודות'), ('portfolio', 'פורטפוליו'), ('where_to_find_me', 'ניתן למצוא אותי'), ('contact_form', 'שלחו לי הודעה')],
+        'HEROslogan': 'רז טומסקו צילום',
+        'HEROsubtitle': 'חתונות / משפחה / רחוב',
+        'HERObutton': 'אודותיי',
+        'EMAILFORMheader': 'שילחו לי הודעה קצרה',
+        'EMAILFORMname': 'שמך',
+        'EMAILFORMaddress': 'כתובת אימייל',
+        'EMAILFORMbutton': 'שליחה',
+        }
+    }

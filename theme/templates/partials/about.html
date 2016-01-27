@@ -1,0 +1,19 @@
+<!-- ABOUT -->
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            {% for article in articles|selectattr('category', 'equalto', 'about') %}
+            {% if article.main %}
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                {% if article.header %}
+                    <h2 class="section-heading">{{ article.header }}</h2>
+                {% endif %}
+                <div class="face-img"></div>
+                <hr class="light">
+                <p class="text-faded description">{{ article.description }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
