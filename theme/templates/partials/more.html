@@ -13,7 +13,7 @@
         <div class="row text-center">
             {% for article in articles|selectattr('category', 'equalto', 'more') %}
             {% if not article.main %}
-                <div class="col-lg-2 col-sm-4 col-xs-12">
+                <div class="col-lg-2 col-sm-4 col-xs-12 method">
                     {% if article.link %}
                         <a href="{{ article.link }}">
                             <i class="fa {{ article.icon }} fa-3x wow bounceIn" data-wow-delay=".{{ loop.index }}s"></i>

@@ -1,0 +1,28 @@
+<!-- PORTFOLIO -->
+<section class="no-padding full-page" id="portfolio">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            {% for article in articles|selectattr('category', 'equalto', 'portfolio') %}
+            <div class="col-lg-4 col-sm-6">
+                <a href="{{ article.url }}" class="portfolio-box portfolio-link">
+                    <img src="/images/portfolio/{{ article.folder }}/thumb.jpg" class="img-responsive animated" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-title">
+                                {{ article.title }}
+                            </div>
+                            <div class="project-name text-faded">
+                                {{ article.summary }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+<!-- Gallery modal -->
+
+
+<!-- End gallery modal -->
+            {% endfor %}
+        </div>
+    </div>
+</section>

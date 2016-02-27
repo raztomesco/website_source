@@ -2,22 +2,74 @@
 <section class="no-padding full-page" id="portfolio">
     <div class="container-fluid">
         <div class="row no-gutter">
-            {% for article in articles|selectattr('category', 'equalto', 'portfolio') %}
-            <div class="col-lg-4 col-sm-6">
-                <a href="{{ article.url }}" class="portfolio-box portfolio-link">
-                    <img src="/images/portfolio/{{ article.folder }}/thumb.jpg" class="img-responsive animated" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-title">
-                                {{ article.title }}
-                            </div>
-                            <div class="project-name text-faded">
-                                {{ article.summary }}
+            {% for article in articles|selectattr('category', 'equalto', 'portfolio') %} {% set outer_loop = loop %}
+            <div class="col-lg-4 col-sm-6 image" data-toggle="modal" data-target="#myModal-{{ loop.index }}">
+                <!-- <a href="{{ article.url }}" class="portfolio-box portfolio-link"> -->
+                <img src="/images/portfolio/{{ article.folder }}/thumb.jpg" class="img-responsive animated" alt="">
+                <h2><span>{{ article.title }}</span></h2>
+                <!-- <div class="portfolio-box-caption"> -->
+                <!-- <div class="portfolio-box-caption-content"> -->
+                <!-- <div class="project-title"> -->
+                <!-- {{ article.title }} -->
+                <!-- </div> -->
+                <!-- <div class="project-name text-faded"> -->
+                <!-- {{ article.summary }} -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- </div> -->
+                <!-- </a> -->
+            </div>
+            <!-- Gallery modal -->
+            {% if article.images %}
+            <div id="myModal-{{ loop.index }}" class="modal modal-fullscreen fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" align="center">{{ article.title }}</h4>
+                      </div>
+                        <div class="modal-body">
+                            <div id="myCarousel-{{ outer_loop.index }}" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <ol class="carousel-indicators">
+                                        {% for image in article.images.strip().split('\n') %} {% set im, alt = image.strip().split(';') %}
+                                        <!-- Indicators -->
+                                        <li data-target="#myCarousel-{{ outer_loop.index }}" data-slide-to="{{ loop.index-1 }}" class="{% if loop.index == 1 %} active{% endif %}">
+                                        </li>
+                                        {% endfor %}
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    {% for image in article.images.strip().split('\n') %} {% set im, alt = image.strip().split(';') %}
+                                    <div class="carousel-image item {% if loop.index == 1 %} active{% endif %}">
+                                        <img class="carousel-image img-responsive" src="/images/portfolio/{{article.folder}}/{{ im }}" alt="{{ alt }}}">
+                                    </div>
+
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel-{{ outer_loop.index }}" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel-{{ outer_loop.index }}" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
                         </div>
+                        <!-- <div class="modal-footer" align="center"> -->
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                        <!-- </div> -->
                     </div>
-                </a>
+
+                </div>
             </div>
+            {% endif %}
+            <!-- End gallery modal -->
             {% endfor %}
         </div>
     </div>
