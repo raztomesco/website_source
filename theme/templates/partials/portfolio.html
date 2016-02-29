@@ -5,7 +5,7 @@
             {% for article in articles|selectattr('category', 'equalto', 'portfolio') %} {% set outer_loop = loop %}
             <div class="col-lg-4 col-sm-6 image" data-toggle="modal" data-target="#myModal-{{ loop.index }}">
                 <!-- <a href="{{ article.url }}" class="portfolio-box portfolio-link"> -->
-                <img src="/images/portfolio/{{ article.folder }}/thumb.jpg" class="img-responsive animated" alt="">
+                <img src="/images/portfolio/{{ article.folder }}/thumb_low.jpg" data-src="/images/portfolio/{{ article.folder }}/thumb.jpg" class="img-responsive animated portfolio-thumb lazyload blur-up" alt="">
                 <h2><span>{{ article.title }}</span></h2>
                 <!-- <div class="portfolio-box-caption"> -->
                 <!-- <div class="portfolio-box-caption-content"> -->
@@ -44,7 +44,7 @@
                                     <!-- Wrapper for slides -->
                                     {% for image in article.images.strip().split('\n') %} {% set im, alt = image.strip().split(';') %}
                                     <div class="carousel-image item {% if loop.index == 1 %} active{% endif %}">
-                                        <img class="carousel-image img-responsive" src="/images/portfolio/{{article.folder}}/{{ im }}" alt="{{ alt }}}">
+                                        <img class="carousel-image img-responsive portfolio-img lazyload blur-up" src="/images/portfolio/{{article.folder}}/lower_{{ im }}"  data-src="/images/portfolio/{{article.folder}}/{{ im }}" alt="{{ alt }}}">
                                     </div>
 
                                     {% endfor %}
@@ -74,3 +74,14 @@
         </div>
     </div>
 </section>
+
+<script>
+  // show loading image
+  $('portfolio-thumb-loader').show();
+
+  // main image loaded ?
+  $('portfolio-thumb').on('load', function(){
+  // hide/remove the loading image
+  $('portfolio-thumb-loader').hide();
+  });
+</script>
