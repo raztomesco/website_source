@@ -31,7 +31,7 @@
                         <h4 class="modal-title" align="center">{{ article.title }}</h4>
                       </div>
                         <div class="modal-body">
-                            <div id="myCarousel-{{ outer_loop.index }}" class="carousel slide" data-ride="carousel">
+                            <div id="myCarousel-{{ outer_loop.index }}" class="carousel slide" data-interval="false" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <ol class="carousel-indicators">
                                         {% for image in article.images.strip().split('\n') %} {% set im, alt = image.strip().split(';') %}

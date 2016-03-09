@@ -309,7 +309,7 @@ header .header-content .header-content-inner p {
     }
     header .header-content {
         position: absolute;
-        top: 70%;
+        top: 90%;
         padding: 0 50px;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -852,6 +852,23 @@ a.carousel-control.left {
     .modal-content {
         height: 500px;
     }
+}
+
+section#where_to_find_me h2,
+section#where_to_find_me p,
+section#where_to_find_me a,
+section#where_to_find_me i {
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    color: white;
+}
+
+section#where_to_find_me hr {
+    border-color: white;
+}
+
+
+section#where_to_find_me p {
+    font-size: 18px;
 }
 
 /* This part is for the lazyslides images */
