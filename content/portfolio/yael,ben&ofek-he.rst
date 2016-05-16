@@ -6,7 +6,7 @@
 :date: 2015-12-31 16:00
 :order: 11
 :img: יעל,בן&אופק.jpg
-:folder: pregnancy1
+:folder: יעל,בן&אופק
 :summary:
 :images_folder: ../images/portfolio/יעל,בן&אופק/
 :images: img1.jpg;
